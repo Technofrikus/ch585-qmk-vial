@@ -296,6 +296,15 @@ if(VIAL_ENABLE)
     list(APPEND quantum_SOURCES
         "${QMK_BASE_DIR}/quantum/vial.c"
     )
+
+    # VialRGB: enables the Lighting tab in Vial (needs RGB_MATRIX and "lighting": "vialrgb" in vial.json)
+    if(VIALRGB_ENABLE)
+        add_definitions(-DVIALRGB_ENABLE)
+        message(STATUS "VIALRGB_ENABLE")
+        list(APPEND quantum_SOURCES
+            "${QMK_BASE_DIR}/quantum/vialrgb.c"
+        )
+    endif()
 endif()
 
 # DIP_SWITCH_ENABLE
